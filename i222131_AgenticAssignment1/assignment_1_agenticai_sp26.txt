@@ -1,0 +1,246 @@
+--- PAGE 1 ---
+National University of Computer & Emerging Sciences
+(FAST–NUCES)
+Assignment 1: AGENTOS-8 — Robust Autonomous Reasoning Agent with
+Safety and Verification
+Individual Assignment — Deadline: February 14, 2026
+1 Context and Motivation
+Modern AI systems in 2026 are no longer single-prompt chatbots. They are autonomous agentic
+systems capable of decomposing goals, reasoning across multiple steps, interacting with unreliable
+tools, verifying uncertain information, repairing failures, and resisting adversarial manipulation.
+Such systems are now deployed in:
+•software engineering copilots
+•cybersecurity incident response
+•financial auditing and compliance
+•operations planning and logistics
+•scientific experimentation assistants
+In all real deployments:
+•single-shot generation is unreliable
+•verification is mandatory
+•tool misuse is dangerous
+•adversarial data is common
+•failure recovery is essential
+This assignment trains you to engineer such an autonomous reasoning system explicitly.
+2 High-Level Objective
+You must build a complete agentic AI framework in pure Python that:
+1. reasons step-by-step using structured JSON actions
+2. interacts safely with unreliable tools
+1
+
+--- PAGE 2 ---
+Agentic AI (Spring 2026) Assignment 1 — AGENTOS-8
+3. automatically repairs malformed outputs
+4. resists prompt injection attacks
+5. compares multiple reasoning architectures experimentally
+This is a systems-level AI engineering task — not a prompt engineering exercise.
+3 Technical Constraints
+Allowed:
+•Python 3.12+
+•Ollama local models or Groq API
+•standard Python libraries
+Not allowed:
+•LangChain, LangGraph, CrewAI, AutoGen, LlamaIndex
+•retrieval-augmented generation (RAG)
+•orchestration frameworks
+•hard-coded task solutions
+4 Mandatory Repository Layout
+agentos8 /
+run_agent .py
+pyproject . toml
+README .md
+agent /
+harness /
+tests_public /
+noise /
+Thenoise/directory contains misleading decoy content. If your agent follows it as policy,
+hidden tests will fail.
+You must extend — not rewrite — this architecture.
+5 Formal Action Protocol
+At every reasoning step exactly one JSON object must be produced.
+Tool call:
+{" type ":" tool "," name ":" calc "," args ":{" expression ":"3*(4+5) "}}
+Final answer:
+{" type ":" final "," answer ":"27" ," confidence ":0.95}
+Any malformed JSON or schema violation must trigger reflection repair.
+2
+
+--- PAGE 3 ---
+Agentic AI (Spring 2026) Assignment 1 — AGENTOS-8
+6 Module Responsibilities (Explicit Engineering Contract)
+6.1 agent/llm.py
+Responsible for:
+•stable model interface
+•handling malformed output
+•retry on transient failures
+•enforcing JSON-only protocol
+•deterministic behavior under seeds
+6.2 agent/protocol.py
+Must strictly validate:
+•tool actions
+•final answer actions
+•required fields and types
+•rejection of invalid schemas
+6.3 agent/react.py
+Implements the full ReAct loop:
+•thought→action→observation cycle
+•intelligent tool choice
+•scratchpad evolution
+•termination detection
+•failure triggering reflection
+6.4 agent/planner.py
+Implements explicit planning:
+•multi-step plan generation
+•sequential execution
+•monitoring progress
+•revising plans when failures occur
+3
+
+--- PAGE 4 ---
+Agentic AI (Spring 2026) Assignment 1 — AGENTOS-8
+6.5 agent/reflect.py
+Implements repair:
+•invalid JSON correction
+•hallucinated tool fixing
+•wrong argument recovery
+•logical failure recovery
+•bounded retry control
+6.6 agent/tot.py
+Implements bounded Tree-of-Thought:
+•multiple candidate reasoning paths
+•scoring or ranking
+•pruning weak branches
+•strict node budget enforcement
+•best-path selection
+6.7 agent/memory.py
+Implements episodic memory:
+•recent tool calls
+•observations
+•repeated failures
+•short-term learning behavior
+6.8 agent/tools.py
+Implements:
+•dynamic tool registration
+•runtime invocation
+•controlled error handling
+•result delivery to agent
+4
+
+--- PAGE 5 ---
+Agentic AI (Spring 2026) Assignment 1 — AGENTOS-8
+6.9 agent/logging.py
+Implements structured JSONL tracing with:
+•reasoning mode
+•step index
+•action JSON
+•observation or error
+•state hash
+7 Reasoning Architectures to Support
+1. ReAct baseline
+2. Plan & Execute
+3. Reflection-enhanced ReAct
+4. Tree-of-Thought reasoning
+Each must run independently via CLI.
+8 Robustness Engineering (Mandatory)
+Your agent must handle:
+•deceptive tool outputs
+•prompt injection attempts
+•invalid JSON responses
+•contradictory information
+•flaky tool failures
+•strict compute budgets
+Blind trust will fail hidden tests.
+9 Framework Comparison Experiment
+Your system must empirically compare reasoning modes:
+python -m agent . compare --tasks harness / tasks_public . json --out compare .
+json
+Metrics must include:
+5
+
+--- PAGE 6 ---
+Agentic AI (Spring 2026) Assignment 1 — AGENTOS-8
+•success rate
+•average steps
+•tool usage
+•recovery behavior
+Per category:
+•computation
+•injection resistance
+•verification
+•planning
+•hard reasoning
+10 How You Are Expected to Run the System
+This assignment is evaluated primarily through theframework comparison experiment, not
+through isolated single-task runs.
+Authoritative Execution Instructions
+All execution commands, environment setup steps, and runtime options are defined in the repository
+README.md. Studentsmust follow the README exactly. The assignment specification and
+README are considered a single contract.
+Primary Required Run (Graded)
+The following commandmust succeed:
+python -m agent . compare --tasks harness / tasks_public . json -- backend <
+ollama |groq > --seed 123 --out compare . json
+This run:
+•executes all reasoning architectures
+•evaluates them across task categories
+•produces the primary grading artifact (compare.json)
+Single-Task Runs
+Single-task runs usingrun agent.pyare provided for:
+•debugging
+•development
+•demonstration during oral defense
+They arenotthe primary grading signal.
+6
+
+--- PAGE 7 ---
+Agentic AI (Spring 2026) Assignment 1 — AGENTOS-8
+Source of Truth
+If any discrepancy exists between:
+•this assignment document, and
+•the repository README
+the README takes precedence for execution details.
+11 Required Outputs
+Each submission must include:
+•working agent system
+•at least one full trace.jsonl
+•compare.json benchmark file
+•public tests passing
+No written report required.
+12 Grading Rubric
+All grading focuses on robustness and reasoning performance.
+Category Weight Performance Expectations
+ReAct Reasoning Quality 20% Intentional tool use, efficient termination, adap-
+tive decisions, minimal wasted steps.
+Reflection Repair Effec-
+tiveness20% Reliable correction of malformed JSON, halluci-
+nated tools, wrong arguments, and logical fail-
+ures within bounded retries.
+Planning & Execution Ro-
+bustness15% Coherent plans, failure detection, plan revision,
+and goal recovery.
+Tree-of-Thought Explo-
+ration15% Meaningful alternative reasoning, scoring, prun-
+ing, and budget-respecting exploration.
+Verification Under Uncer-
+tainty15% Cross-checking unreliable tools, rejecting incon-
+sistent outputs, and validating results.
+Prompt Injection Resis-
+tance15% Consistent rejection of malicious tool instruc-
+tions and goal hijacking attempts.
+Live demo/oral defense is mandatory and pass/fail.
+7
+
+--- PAGE 8 ---
+Agentic AI (Spring 2026) Assignment 1 — AGENTOS-8
+13 Expected Learning Outcomes
+Students will:
+•engineer real autonomous AI systems
+•design fault-tolerant reasoning pipelines
+•understand modern agent architectures
+•evaluate cognitive strategies empirically
+•move beyond prompt-based AI
+14 Final Statement
+This assignment mirrors real-world autonomous AI engineering challenges.
+There is no shortcut solution.
+Success depends on intelligent system design, robustness, verification, and adaptive reasoning
+not on clever prompting.
+8

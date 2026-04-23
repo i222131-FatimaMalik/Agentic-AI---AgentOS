@@ -1,0 +1,2 @@
+{"mode": "react", "step": 1, "action": {"type": "final", "answer": "70", "confidence": 0.95}, "obs": "", "scratch_hash": "e3b0c44298fc1c14", "ts": 1771092783.306864, "state_id": "s123-38fc56e098"}
+{"mode": "react", "step": 1, "action": {"type": "final", "answer": "90", "confidence": 1.0}, "obs": "90", "tool_ms": 0, "scratch_hash": "e3b0c44298fc1c14", "ts": 1771092856.771979, "state_id": "s123-38fc56e098"}

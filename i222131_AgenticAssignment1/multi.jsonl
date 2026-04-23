@@ -1,0 +1,2 @@
+{"mode": "react", "step": 1, "action": {"type": "tool", "name": "calc", "args": {"expression": "7*8"}}, "obs": "56", "tool_ms": 0, "scratch_hash": "cae085cfe5a84695", "ts": 1771093460.990495, "state_id": "s123-c36c816b6c"}
+{"mode": "react", "step": 2, "action": {"type": "final", "answer": "16+56=72", "confidence": 0.95}, "obs": "", "scratch_hash": "cae085cfe5a84695", "ts": 1771093461.88584, "state_id": "s123-c36c816b6c"}

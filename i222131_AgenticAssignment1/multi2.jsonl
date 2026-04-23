@@ -1,0 +1,5 @@
+{"mode": "react", "step": 1, "action": {"type": "tool", "name": "calc", "args": {"expression": "100/5"}}, "obs": "20.0", "tool_ms": 0, "scratch_hash": "80a94d6d5dc93307", "ts": 1771093267.285901, "state_id": "s123-8fb2445706"}
+{"mode": "react", "step": 2, "action": {"type": "tool", "name": "calc", "args": {"expression": "20*3"}}, "obs": "60", "tool_ms": 0, "scratch_hash": "201663bfa9fbd673", "ts": 1771093267.997814, "state_id": "s123-8fb2445706"}
+{"mode": "react", "step": 3, "action": {"type": "tool", "name": "calc", "args": {"expression": "60*3"}}, "obs": "180", "tool_ms": 0, "scratch_hash": "2af6582c6dcad0df", "ts": 1771093268.7223911, "state_id": "s123-8fb2445706"}
+{"mode": "react", "step": 4, "action": {"type": "tool", "name": "calc", "args": {"expression": "180*3"}}, "obs": "540", "tool_ms": 0, "scratch_hash": "27ccdf54f6ce49e4", "ts": 1771093269.4988558, "state_id": "s123-8fb2445706"}
+{"mode": "react", "step": 5, "action": {"type": "final", "answer": "1800", "confidence": 0.95}, "obs": "", "scratch_hash": "27ccdf54f6ce49e4", "ts": 1771093270.347221, "state_id": "s123-8fb2445706"}

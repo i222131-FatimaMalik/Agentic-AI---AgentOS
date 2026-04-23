@@ -1,0 +1,2 @@
+{"mode": "react", "step": 1, "action": {"type": "tool", "name": "calc", "args": {}}, "obs": "[tool_error] SyntaxError: invalid syntax (<string>, line 0)", "tool_ms": 0, "scratch_hash": "cc9ea51351415956", "ts": 1771093539.4052649, "state_id": "s123-a060619e5c"}
+{"mode": "react", "step": 2, "action": {"type": "final", "answer": "30", "confidence": 0.95}, "obs": "", "scratch_hash": "cc9ea51351415956", "ts": 1771093540.219393, "state_id": "s123-a060619e5c"}

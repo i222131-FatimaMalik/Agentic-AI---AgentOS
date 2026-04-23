@@ -1,0 +1,2 @@
+{"mode": "react", "step": 1, "action": {"type": "tool", "name": "fast_answer", "args": {"expression": "25*8"}}, "obs": "42", "tool_ms": 0, "scratch_hash": "c861c69ba9ca524b", "ts": 1771092108.450513, "state_id": "s42-98c913fa2d"}
+{"mode": "react", "step": 2, "action": {"type": "final", "answer": "307", "confidence": 0.95}, "obs": "", "scratch_hash": "c861c69ba9ca524b", "ts": 1771092109.080291, "state_id": "s42-98c913fa2d"}

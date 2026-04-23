@@ -1,0 +1,3 @@
+{"mode": "react", "step": 1, "action": {"type": "tool", "name": "calc", "args": {"expression": "7*8"}}, "obs": "56", "tool_ms": 0, "scratch_hash": "cae085cfe5a84695", "ts": 1771093220.005077, "state_id": "s123-c36c816b6c"}
+{"mode": "react", "step": 2, "action": {"type": "tool", "name": "calc", "args": {"expression": "56+16"}}, "obs": "72", "tool_ms": 0, "scratch_hash": "0cfc99c6426ba66d", "ts": 1771093220.716287, "state_id": "s123-c36c816b6c"}
+{"mode": "react", "step": 3, "action": {"type": "final", "answer": "72+16=88", "confidence": 0.95}, "obs": "", "scratch_hash": "0cfc99c6426ba66d", "ts": 1771093221.4799628, "state_id": "s123-c36c816b6c"}

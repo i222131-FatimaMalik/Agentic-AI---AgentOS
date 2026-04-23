@@ -1,0 +1,1 @@
+{"mode": "react", "step": 1, "action": {"type": "tool", "name": "calc", "args": {"expression": "(27+53)*(12-7)"}}, "obs": "400", "tool_ms": 0, "scratch_hash": "69d3d94c644ba02c", "ts": 1773036964.295375, "state_id": "s456-14a549b3bb"}

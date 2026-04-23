@@ -1,0 +1,6 @@
+{"mode": "react", "step": 1, "action": {"type": "final", "answer": "50", "confidence": 1.0}, "obs": "50", "tool_ms": 0, "scratch_hash": "e3b0c44298fc1c14", "ts": 1771092125.115951, "state_id": "s123-c361df5e92"}
+{"mode": "react", "step": 1, "action": {"type": "final", "answer": "50", "confidence": 1.0}, "obs": "50", "tool_ms": 0, "scratch_hash": "e3b0c44298fc1c14", "ts": 1771092262.835509, "state_id": "s123-c361df5e92"}
+{"mode": "react", "step": 1, "action": {"type": "final", "answer": "60", "confidence": 0.95}, "obs": "", "scratch_hash": "e3b0c44298fc1c14", "ts": 1771092338.319275, "state_id": "s123-c361df5e92"}
+{"mode": "react", "step": 1, "action": {"type": "final", "answer": "50", "confidence": 1.0}, "obs": "50", "tool_ms": 0, "scratch_hash": "e3b0c44298fc1c14", "ts": 1771092384.5174909, "state_id": "s123-c361df5e92"}
+{"mode": "react", "step": 1, "action": {"type": "final", "answer": "70", "confidence": 0.95}, "obs": "", "scratch_hash": "e3b0c44298fc1c14", "ts": 1771092471.466518, "state_id": "s123-c361df5e92"}
+{"mode": "react", "step": 1, "action": {"type": "final", "answer": "60", "confidence": 1.0}, "obs": "", "scratch_hash": "e3b0c44298fc1c14", "ts": 1771092750.787766, "state_id": "s123-c361df5e92"}
